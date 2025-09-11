@@ -1,0 +1,142 @@
+:root {
+  --global-font-size: 15px;
+  --global-line-height: 1.4em;
+  --global-space: 10px;
+  --font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+    serif;
+  --mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+    serif;
+  --background-color: #222225;
+  --page-width: 60em;
+  --font-color: #e8e9ed;
+  --invert-font-color: #222225;
+  --secondary-color: #a3abba;
+  --tertiary-color: #a3abba;
+  --primary-color: #62c4ff;
+  --error-color: #ff3c74;
+  --progress-bar-background: #3f3f44;
+  --progress-bar-fill: #62c4ff;
+  --code-bg-color: #3f3f44;
+  --input-style: solid;
+  --display-h1-decoration: none;
+  --menu-btn-bar-width: 2em;
+  --mobile-topbar-height: 3.5em;
+  --mobile-sidebar-width: 50%;
+}
+
+/* Allows links to be identified without color */
+
+a {
+  text-decoration: underline
+}
+
+.topbar {
+  display: flex;
+  padding-top: 1em;
+}
+
+.topbar p {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+@media not screen and (max-width: 700px) {
+  .components-grid {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-column-gap: 1.4em;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .topbar {
+    height: var(--mobile-topbar-height);
+  }
+
+  /* Hide sidebar, but have it be a nice sticky menu if activated */
+
+  .sidebar {
+    display: none;
+    width: 0;
+  }
+
+  .sidebar-mobile {
+    position: fixed;
+    left: 0;
+    width: var(--mobile-sidebar-width);
+    height: calc(100% - var(--mobile-topbar-height));
+    z-index: 999;
+    background-color: var(--background-color);
+    border-right-color: var(--secondary-color);
+    border-right-style: solid;
+  }
+
+  .jump-table {
+    margin-left: var(--global-space);
+  }
+
+  .sidebar_separator {
+    margin-top: var(--global-space);
+    margin-bottom: var(--global-space);
+  }
+
+  /* Creates a burger menu for the sidebar */
+
+  .menu-bar {
+    width: var(--menu-btn-bar-width);
+    height: 0.2em;
+    background-color: var(--font-color);
+    margin-top: 0;
+    margin-bottom: 0.4em;
+  }
+
+  .mobile-menu-btn {
+    float: right;
+    margin-left: auto;
+    cursor: pointer;
+  }
+
+  .mobile-menu-sidebar-btn {
+    /* So that it is fixed at the bottom */
+    position: fixed;
+    bottom: var(--global-space);
+    /* Align to just left of the sidebar edge */
+    margin-left: calc(var(--mobile-sidebar-width) - (var(--menu-btn-bar-width) + var(--global-space)));
+    cursor: pointer;
+  }
+
+  /* Always show topbar on mobile */
+  .topbar {
+    position: sticky !important;
+    top: 0;
+    background-color: var(--background-color) !important;
+    /* To display over h* elements */
+    z-index: 1000;
+    border-bottom-color: var(--secondary-color);
+    border-bottom-style: solid;
+  }
+}
+
+.components-grid aside {
+  position: sticky;
+  top: calc(var(--global-space) * 2);
+}
+
+
+/* Styles nav bar */
+
+li:has(a) {
+  margin-bottom: var(--global-space)
+}
+
+li ul {
+  margin-top: var(--global-space)
+}
+
+/* So the theme buttons feel like buttons */
+
+.theme_option {
+  cursor: pointer;
+}

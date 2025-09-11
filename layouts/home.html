@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{ partial "head" (dict "styles" (slice "home.css")) }}
+  <body>
+    <div class="container">
+      <h1>{{ .Title }}</h1>
+      <div class="about">
+        <div class="terminal-card">
+          <header>Tye : She/They</header>
+          <div>
+            <picture>
+              <source class="pfp" srcset="images/pfp.avif" type="image/avif">
+              <img class="pfp" src="images/pfp.jpg" alt="Drawing of a cat holding a fish">
+            </picture>
+          </div>
+        </div>
+        <div>
+          {{ .Content }}
+        </div>
+      </div>
+      <!-- End of about -->
+      <hr>
+      {{ range .Pages }}
+      <h2>{{ .Title }}</h2>
+      <p>{{ .Content | truncate 250 }}</p>
+      {{ end }}
+    </div>
+  </body>
+</html>

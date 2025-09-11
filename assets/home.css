@@ -1,0 +1,8 @@
+.about {
+  display: flex;
+  gap: 1em;
+}
+
+.about .terminal-card {
+  max-width: 20%;
+}
