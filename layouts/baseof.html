@@ -1,7 +1,15 @@
+<!-- Contains all of the extra stylesheets to include in a specific page -->
+<!-- Set to an empty slice, so that added stylesheets do not need to be in a slice -->
+<!-- It works when set to hugo. I don't know why, but it does -->
+{{ hugo.Store.Set "styles" (slice)}}
 <!DOCTYPE html>
 <html lang="en">
-  {{ partial "head" }}
+  <head>
+    {{ partial "head" (dict "styles" ($.Site.Store.Get "styles")) }}
+  </head>
   <body>
-    {{ .Content }}
+    {{ block "body" . }}
+      Will be replaced by "define block" content. 
+    {{ end }}
   </body>
 </html>

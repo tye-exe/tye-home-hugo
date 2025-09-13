@@ -6,3 +6,7 @@
 .about .terminal-card {
   max-width: 20%;
 }
+
+.pfp {
+  display: block;
+}

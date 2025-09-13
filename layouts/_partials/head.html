@@ -5,14 +5,12 @@
 {{end}}
 
 {{ $title := default "Personal website of tye; Sharing who they are and their interests" .title }}
-<head>
-  <meta charset="UTF-8">
-  <title>Tye's home</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="{{$title}}">
-  <!-- Populate style sheets -->
-  {{ range $style_sheets }}
+<meta charset="UTF-8">
+<title>Tye's home</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="{{$title}}">
+<!-- Populate style sheets -->
+{{ range $style_sheets }}
   {{ $sheet:= resources.Get . | minify }}
-  <link rel="stylesheet" href="{{ $sheet.Permalink }}">
-  {{ end }}
-</head>
+<link rel="stylesheet" href="{{ $sheet.Permalink }}">
+{{ end }}

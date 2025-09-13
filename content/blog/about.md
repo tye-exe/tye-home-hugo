@@ -1,17 +1,8 @@
 +++
 date = '2025-09-11T13:09:46+01:00'
 draft = false
-title = 'About'
+title = 'Programming Languages'
 +++
-
-Heyo, i'm tye, it's nice to meet you. Well _kinda_ meeting, since i'm just text on a website. Hmm... Would this count as "time-travel"? Since these words are from a me in the past, so you're reading the thoughts that i've tip tapped onto the computer from some time in the not so distant past.
-
-Anyway, back to the point (if there even is one). I hope you enjoy my website and perhaps even reading a bit about me and the things that i do!
-
-* * *
-
-Codings
--------
 
 Messing around with computers (also known as coding) is what i love enjoy tolerate? I'm joking, it's my favorite thing! I have been coding since i figured out how to install [Python](https://www.python.org/) back when i was but a child and have never looked back. Over my years of staring at the computer screen, i have sank hours upon hours into Python and [Java](https://dev.java/learn/), but the two languages that i enjoy fighting with/programming in the most are [Rust](https://www.rust-lang.org/) and [Nix](https://nixos.org/), both of which i adore for different reasons.
 

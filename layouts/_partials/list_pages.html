@@ -1,0 +1,12 @@
+{{ if not (in (.Store.Get "styles") "list_pages.css") }}
+  {{ $.Site.Store.Add "styles" "list_pages.css"}}
+{{ end }}
+<div class="list_pages">
+  <header>Title</header>
+  <header>Extract</header>
+  {{- range .Pages -}}
+  <a href="{{ .RelPermalink | safeURL}}">{{- .LinkTitle -}}</a>
+  <!-- Adds own <p> tag -->
+  {{- .Content | truncate 250 -}}
+  {{- end -}}
+</div>

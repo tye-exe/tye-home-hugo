@@ -1,0 +1,10 @@
+.list_pages {
+  display: grid;
+  grid-template-columns: 20% auto;
+}
+
+.list_pages header {
+  margin: 0 0 var(--global-line-height);
+  text-decoration: underline;
+  font-weight: bold;
+}
