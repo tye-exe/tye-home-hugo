@@ -4,7 +4,7 @@ draft = false
 title = 'Programming Languages'
 +++
 
-Messing around with computers (also known as coding) is what i love enjoy tolerate? I'm joking, it's my favorite thing! I have been coding since i figured out how to install [Python](https://www.python.org/) back when i was but a child and have never looked back. Over my years of staring at the computer screen, i have sank hours upon hours into Python and [Java](https://dev.java/learn/), but the two languages that i enjoy fighting with/programming in the most are [Rust](https://www.rust-lang.org/) and [Nix](https://nixos.org/), both of which i adore for different reasons.
+Messing around with computers (also known as coding) is what i ~love~ ~enjoy~ tolerate? I'm joking, it's my favorite thing! I have been coding since i figured out how to install [Python](https://www.python.org/) back when i was but a child and have never looked back. Over my years of staring at the computer screen, i have sank hours upon hours into Python and [Java](https://dev.java/learn/), but the two languages that i enjoy fighting with/programming in the most are [Rust](https://www.rust-lang.org/) and [Nix](https://nixos.org/), both of which i adore for different reasons.
 
 ### Rust (and Java)
 

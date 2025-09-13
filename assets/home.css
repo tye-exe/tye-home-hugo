@@ -1,6 +1,7 @@
 .about {
   display: flex;
   gap: 1em;
+  align-items: center;
 }
 
 .about .terminal-card {
@@ -9,4 +10,13 @@
 
 .pfp {
   display: block;
+}
+
+/* Removes the margin after the last intro paragraph */
+.about-text p:nth-child(3n) {
+  margin-bottom: 0;
+}
+
+.about-ender {
+  margin: calc(var(--global-space) * 2.5)0;
 }
