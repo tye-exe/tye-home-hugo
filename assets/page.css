@@ -1,4 +1,4 @@
-.content {
+.container {
   display: grid;
   grid-template-columns: 20% 80%;
   grid-column-gap: 1.4em;
@@ -8,16 +8,15 @@
 .sidebar {
   position: sticky;
   top: calc(var(--global-space) * 2);
-  /* align-self: normal; */
-  /* al */
+}
+
+.sidebar hr {
+  margin-top: calc(var(--global-space) * 2);
+  margin-bottom: 0;
 }
 
 .pfp {
   display: block;
-}
-
-.spacer {
-  height: calc(var(--global-space) * 2);
 }
 
 .sidebar h3 {
@@ -26,4 +25,18 @@
 
 .sidebar nav ul li ul li {
   padding-left: 0;
+}
+
+/* Needs to be longer than "sidebar" so that sidebar aligns properly */
+.content {
+  /* Aligns with the top of the card, as the card has 0.5em padding */
+  position: relative;
+  top: -0.6em;
+
+  min-height: 600px;
+}
+
+.path-link {
+  text-indent: 1.2em hanging;
+  display: inline-block;
 }

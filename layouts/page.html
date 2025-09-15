@@ -1,5 +1,5 @@
 {{define "body"}}
-<div class="container content">
+<div class="container">
   <div class="sidebar">
     <div class="terminal-card">
       <header>Tye : She/They</header>
@@ -11,11 +11,24 @@
       </div>
     </div>
     <hr>
+    <h3>Way Out</h3>
+    <nav>
+      <ul>
+        {{ $links := where .Ancestors "Title" "ne" "Blogs"}}
+        {{ $links = $links | append .Page }}
+        {{ range ($links) }}
+        <li class="path-link">
+          >
+          <a href="{{- .RelPermalink -}}">{{- .LinkTitle -}}</a>
+        </li>
+        {{- end -}}
+      </ul>
+    </nav>
+    <hr>
     <h3>Jump Table</h3>
     {{ .TableOfContents }}
   </div>
-  <div>
-    <div class="spacer"></div>
+  <div class="content">
     {{ .Content }}
   </div>
 </div>

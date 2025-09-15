@@ -14,6 +14,16 @@
     {{block "stylefiles" . }}{{end}}
   </head>
   <body>
+    <div class="topbar">
+      <nav class="link-prompt">
+        {{ $links := where .Ancestors "Title" "ne" "Blogs"}}
+        {{ $links = $links | append .Page }}
+        {{ range ($links) }}
+        >
+        <a href="{{- .RelPermalink -}}">{{- .LinkTitle -}}</a>
+        {{- end -}}
+      </nav>
+    </div>
     {{ block "body" . }}
       Will be replaced by "define block" content. 
     {{ end }}

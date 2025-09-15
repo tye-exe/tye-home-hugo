@@ -32,3 +32,29 @@
 a {
   text-decoration: underline
 }
+
+.topbar {
+  margin: 0 auto;
+  padding: 0 calc(var(--global-space) * 2);
+  max-width: var(--page-width);
+  margin-top: var(--global-space);
+  margin-bottom: var(--global-space);
+}
+
+.link-prompt {
+  position: relative;
+  white-space: nowrap
+}
+
+.link-prompt::after {
+  content: "";
+  animation: cursor 800ms infinite;
+  background: var(--primary-color);
+  border-radius: 0;
+  display: inline-block;
+  height: 1em;
+  margin-left: .5em;
+  width: 3px;
+  bottom: -2px;
+  position: relative
+}
