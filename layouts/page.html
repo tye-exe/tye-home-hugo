@@ -1,5 +1,26 @@
 {{define "body"}}
-<div class="container">
-  {{ .Content }}
+<div class="container content">
+  <div class="sidebar">
+    <div class="terminal-card">
+      <header>Tye : She/They</header>
+      <div>
+        <picture>
+          <source class="pfp" srcset="/images/pfp.avif" type="image/avif">
+          <img class="pfp" src="/images/pfp.jpg" alt="Drawing of a cat holding a fish">
+        </picture>
+      </div>
+    </div>
+    <hr>
+    <h3>Jump Table</h3>
+    {{ .TableOfContents }}
+  </div>
+  <div>
+    <div class="spacer"></div>
+    {{ .Content }}
+  </div>
 </div>
+{{ end }}
+
+{{ define "stylefiles" }}
+{{ partial "stylesheet" (slice "page.css") }}
 {{ end }}

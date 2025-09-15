@@ -1,5 +1,4 @@
 {{ define "body" }}
-{{ $.Site.Store.Add "styles" "home.css" }}
 <div class="container">
   <div class="about">
     <div class="terminal-card">
@@ -22,7 +21,27 @@
   <hr class="about-ender">
   <h2>Blogs</h2>
   {{ with .GetPage "blog" }}
-    {{ partial "list_pages" . }}
+  <!-- Headers -->
+  <div class="list_pages">
+    <header>Title</header>
+    <div class="separator"></div>
+    <header>Extract</header>
+  </div>
+  <hr style="margin: 0;">
+  <!-- Content -->
+  {{- range .Pages -}}
+  <div class="list_pages">
+    <a href="{{ .RelPermalink | safeURL}}">{{- .LinkTitle -}}</a>
+    <div class="separator"></div>
+    <!-- Adds own <p> tag -->
+    {{- .Content | truncate 250 -}}
+  </div>
+  <hr style="margin: 0;">
+  {{- end -}}
   {{ end }}
 </div>
 {{ end }}
+
+{{ define "stylefiles" }}
+    {{ partial "stylesheet" (slice "home.css" "list_pages.css")}}
+{{end}}

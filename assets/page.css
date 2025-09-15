@@ -1,0 +1,29 @@
+.content {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-column-gap: 1.4em;
+  align-items: baseline;
+}
+
+.sidebar {
+  position: sticky;
+  top: calc(var(--global-space) * 2);
+  /* align-self: normal; */
+  /* al */
+}
+
+.pfp {
+  display: block;
+}
+
+.spacer {
+  height: calc(var(--global-space) * 2);
+}
+
+.sidebar h3 {
+  margin-bottom: 0;
+}
+
+.sidebar nav ul li ul li {
+  padding-left: 0;
+}

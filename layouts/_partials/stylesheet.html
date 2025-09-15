@@ -1,0 +1,5 @@
+<!-- A string list of paths to css files is expected -->
+{{ range . }}
+{{ $sheet:= resources.Get . | minify }}
+<link rel="stylesheet" href="{{ $sheet.Permalink }}">
+{{ end }}

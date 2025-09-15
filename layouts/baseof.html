@@ -1,11 +1,17 @@
 <!-- Contains all of the extra stylesheets to include in a specific page -->
 <!-- Set to an empty slice, so that added stylesheets do not need to be in a slice -->
 <!-- It works when set to hugo. I don't know why, but it does -->
-{{ hugo.Store.Set "styles" (slice)}}
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {{ partial "head" (dict "styles" ($.Site.Store.Get "styles")) }}
+    <meta charset="UTF-8">
+    <title>Tye's home</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Personal website of tye; Sharing who they are and their interests">
+    <!-- Populate style sheets -->
+    {{ partial "stylesheet" (slice "terminal.css" "style.css")}}
+    <!-- Extra stylesheets -->
+    {{block "stylefiles" . }}{{end}}
   </head>
   <body>
     {{ block "body" . }}
