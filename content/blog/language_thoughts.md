@@ -12,7 +12,7 @@ Rust, is there anything new for me to say about it? I'm not really sure, as i wi
 
 Before discovering rust, and yes i will say discover, i primarily used Java. Java has its quirks and odd moments, as all languages do, but the parts that annoyed me the most about Java is the fact the null exists and that runtime errors do not have to be declared in the function signature. The former is a nightmare when trying to work with data that is returned from any functions that do not mention that they might return null. The latter annoys me when i'm trying to find out how and where code can fail, so i can handle it gracefully.
 
-Rust's answer to null is just removing it, null does not exist in Rust. A choice for which i am grateful, as i do not have to deal with "The Billion Dollar Mistake" that null has been labeled. For errors, Rust handles them beautifully, integerating them into the type system. Alas, `panic!()` does exist in Rust, but some errors are much too tedious to be dealt with constantly (looking at you out of memory errors).
+Rust's answer to null is just removing it, null does not exist in Rust. A choice for which i am grateful, as i do not have to deal with "The Billion Dollar Mistake" that null has been labeled. For errors, Rust handles them beautifully, integrating them into the type system. Alas, `panic!()` does exist in Rust, but some errors are much too tedious to be dealt with constantly (looking at you out of memory errors).
 
 At the end of the day, Java is still a language that i spent a lot of time in and that i still hold fondly. Maybe one day i will pick it up again when it is the best solution to a problem that i am facing.
 
