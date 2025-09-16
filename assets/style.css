@@ -89,3 +89,7 @@ a {
     margin: 0;
   }
 }
+
+details {
+  margin: 0 0 var(--global-line-height)
+}
