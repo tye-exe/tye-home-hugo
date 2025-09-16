@@ -27,6 +27,22 @@
   }
 }
 
+@media (max-width: 55em) {
+  .hide-mobile {
+    display: none;
+  }
+
+  .invisible-mobile {
+    visibility: hidden;
+  }
+}
+
+@media (min-width: 55em) {
+  .hide-desktop {
+    display: none;
+  }
+}
+
 /* Allows links to be identified without color */
 
 a {
@@ -57,4 +73,19 @@ a {
   width: 3px;
   bottom: -2px;
   position: relative
+}
+
+.desktop-promotion {
+  position: fixed;
+  bottom: 0px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: var(--background-color);
+  z-index: 100;
+
+  * {
+    margin: 0;
+  }
 }

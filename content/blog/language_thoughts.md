@@ -23,10 +23,3 @@ I'm quite sure that Nix is far less popular than Rust, which is admittedly deser
 Being able to fully recreate any environment and configuration on any machine at any time is a form of a super power. Similar to [Docker](https://www.docker.com/) it prevents the whole "it works on my machine!" issue that so commonly comes up by defining the entire environment so it can be recreated. This is one of the primary reasons why Nixpkgs has the largest and most up to date collection of packages out of any package manager, which is also a big reason why i stick with Nix. The ability to see software and temporarily download it, just to mess around, and then having it be cleaned up after is so freeing. I love it.
 
 Going back to the **Reproducibility**, Nix has convinced my brain that it is working spending time on configuring tools such as Git and [Helix](https://helix-editor.com/) (my IDE) to my exact liking is worth it, because the settings are stored centerally in one placed and shared across all of my devices. It takes time to get everything set up the way i like it, but now that i have i'm always able to work how i want, without ever having to worry about trying to synchronise all of my settings (or trying to remember that one obscure setting that i changed years ago and is essential).
-
-* * *
-
-Partings Traveler
-=================
-
-I have enjoyed having you around, stay safe out there on the interwebs!

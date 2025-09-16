@@ -1,6 +1,3 @@
-<!-- Contains all of the extra stylesheets to include in a specific page -->
-<!-- Set to an empty slice, so that added stylesheets do not need to be in a slice -->
-<!-- It works when set to hugo. I don't know why, but it does -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,7 +11,7 @@
     {{block "stylefiles" . }}{{end}}
   </head>
   <body>
-    <div class="topbar">
+    <div class="topbar invisible-mobile">
       <nav class="link-prompt">
         {{ $links := where .Ancestors "Title" "ne" "Blogs"}}
         {{ $links = $links | append .Page }}
@@ -27,5 +24,9 @@
     {{ block "body" . }}
       Will be replaced by "define block" content. 
     {{ end }}
+    <footer class="hide-desktop desktop-promotion">
+      <hr>
+      <p>Works best in desktop &lt;3</p>
+    </footer>
   </body>
 </html>

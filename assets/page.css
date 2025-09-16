@@ -1,13 +1,18 @@
 .container {
-  display: grid;
+  @media (min-width: 55em) {
+    display: grid;
+  }
+
   grid-template-columns: 20% 80%;
   grid-column-gap: 1.4em;
   align-items: baseline;
 }
 
-.sidebar {
-  position: sticky;
-  top: calc(var(--global-space) * 2);
+@media (min-width: 55em) {
+  .sidebar {
+    position: sticky;
+    top: calc(var(--global-space) * 2);
+  }
 }
 
 .sidebar hr {
@@ -39,4 +44,90 @@
 .path-link {
   text-indent: 1.2em hanging;
   display: inline-block;
+}
+
+/* Bellow handles the sidebar on mobile */
+
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 55em) {
+  .menu-toggle:checked~.sidebar {
+    transform: translateX(0) !important;
+  }
+
+  .menu-toggle:checked~.overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .menu-toggle:checked~.content * {
+    filter: blur(1.5px);
+  }
+
+  .menu-toggle:checked~.menu-toggle-icon {
+    transform: translateX(-820%) !important;
+    transition: all 0.3s ease;
+  }
+
+  .menu-toggle:checked~.menu-toggle-icon .menu-arrow {
+    /* Roatate the arrow */
+    transform: translateX(10px) scale(-1, 1);
+    transition: all 0.3s ease;
+  }
+
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    min-height: 100%;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 10;
+    border-left: 2px solid var(--secondary-color);
+    background-color: var(--background-color);
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 8;
+  }
+
+  .menu-toggle-icon {
+    --arrow-size: 10px;
+
+    position: fixed;
+    top: calc(50% - (var(--arrow-size) * 2));
+    right: -12px;
+
+    height: calc(var(--arrow-size) * 6);
+    width: calc(var(--arrow-size) * 2 + 10px);
+    border-radius: 30%;
+    background-color: var(--font-color);
+    z-index: 9;
+
+    .menu-arrow {
+      width: 0;
+      height: 0;
+      border-right: var(--arrow-size) solid var(--background-color);
+      border-top: var(--arrow-size) solid transparent;
+      border-bottom: var(--arrow-size) solid transparent;
+      border-left: var(--arrow-size) solid transparent;
+
+      position: relative;
+      /* Doesn't work as variable */
+      top: 20px;
+      left: -7px;
+    }
+  }
 }

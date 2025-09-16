@@ -1,5 +1,13 @@
 {{define "body"}}
 <div class="container">
+  <!-- Needs to be under the same parent as "sidebar" for "~" css selector to work -->
+  <!-- AKA, needs to be here for side-in menu to work -->
+  <input type="checkbox" id="menu-toggle" class="menu-toggle hide-desktop">
+  <label for="menu-toggle" class="menu-toggle-icon hide-desktop">
+    <div class="menu-arrow"></div>
+  </label>
+  <label for="menu-toggle" class="overlay hide-desktop"></label>
+  <!-- main content follows -->
   <div class="sidebar">
     <div class="terminal-card">
       <header>Tye : She/They</header>

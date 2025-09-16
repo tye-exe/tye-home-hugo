@@ -1,7 +1,7 @@
 {{ define "body" }}
 <div class="container">
   <div class="about">
-    <div class="terminal-card">
+    <div class="terminal-card hide-mobile">
       <header>Tye : She/They</header>
       <div>
         <picture>
@@ -17,25 +17,37 @@
   <!-- End of about -->
   <hr class="about-ender">
   <h2>Blogs</h2>
-  {{ with .GetPage "blog" }}
-  <!-- Headers -->
-  <div class="list_pages">
-    <header>Title</header>
-    <div class="separator"></div>
-    <header>Extract</header>
-  </div>
-  <hr style="margin: 0;">
-  <!-- Content -->
-  {{- range .Pages -}}
-  <div class="list_pages">
-    <a href="{{ .RelPermalink | safeURL}}">{{- .LinkTitle -}}</a>
-    <div class="separator"></div>
-    <!-- Adds own <p> tag -->
-    {{- .Content | truncate 250 -}}
-  </div>
-  <hr style="margin: 0;">
-  {{- end -}}
+  <div class="hide-mobile">
+    {{ with .GetPage "blog" }}
+    <!-- Headers -->
+    <div class="list_pages">
+      <header>Title</header>
+      <div class="separator"></div>
+      <header>Extract</header>
+    </div>
+    <hr style="margin: 0;">
+    <!-- Content -->
+    {{- range .Pages -}}
+    <div class="list_pages">
+      <a href="{{ .RelPermalink | safeURL}}">{{- .LinkTitle -}}</a>
+      <div class="separator"></div>
+      <!-- Adds own <p> tag -->
+      {{- .Content | truncate 250 -}}
+    </div>
+    <hr style="margin: 0;">
+    {{- end -}}
   {{ end }}
+  </div>
+  <div class="hide-desktop">
+    {{ with .GetPage "blog" }}
+    {{- range .Pages -}}
+    <a href="{{ .RelPermalink | safeURL}}"><h3>{{- .LinkTitle -}}</h3></a>
+    <!-- Adds own <p> tag -->
+    {{- .Content | truncate 200 -}}
+    <hr style="margin-top: 0;">
+    {{end}}
+    {{ end }}
+  </div>
 </div>
 {{ end }}
 

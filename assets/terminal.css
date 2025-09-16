@@ -5,6 +5,7 @@
   --global-space: 10px;
   --font-stack: "Menlo", "Monaco", "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", serif;
   --mono-font-stack: "Menlo", "Monaco", "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", serif;
+  /* When changing make sure to change hide-mobile classes */
   --page-width: 60em;
   --input-style: solid;
   --display-h1-decoration: none;
