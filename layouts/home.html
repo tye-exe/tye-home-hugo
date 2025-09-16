@@ -31,8 +31,10 @@
     <div class="list_pages">
       <a href="{{ .RelPermalink | safeURL}}">{{- .LinkTitle -}}</a>
       <div class="separator"></div>
-      <!-- Adds own <p> tag -->
-      {{- .Content | truncate 250 -}}
+      <div>
+        <!-- Replace header tags, as they take up too much space -->
+        {{- .Content | replaceRE `h\d` "strong" | safeHTML | truncate 250 -}}
+      </div>
     </div>
     <hr style="margin: 0;">
     {{- end -}}
@@ -42,8 +44,10 @@
     {{ with .GetPage "blog" }}
     {{- range .Pages -}}
     <a href="{{ .RelPermalink | safeURL}}"><h3>{{- .LinkTitle -}}</h3></a>
-    <!-- Adds own <p> tag -->
-    {{- .Content | truncate 200 -}}
+    <div>
+      <!-- Replace header tags, as they take up too much space -->
+      {{- .Content | replaceRE `h\d` "strong" | safeHTML | truncate 200 -}}
+    </div>
     <hr style="margin-top: 0;">
     {{end}}
     {{ end }}
