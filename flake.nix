@@ -23,6 +23,26 @@
             hugo
           ];
         };
+
+        # Builds and minifies website
+        # run with "nix run ."
+        apps.default = {
+          type = "app";
+          program =
+            let
+              script = pkgs.writeShellScriptBin "build" ''
+                # Enables "**" glob pattern to be recursive
+                shopt -s globstar
+
+                ${pkgs.hugo}/bin/hugo build
+                ${pkgs.minhtml}/bin/minhtml public/**/*.{html,css,js}
+
+                echo "Built and minified files"
+                echo "Ensure you clear ./public before running this script to remove unused files"
+              '';
+            in
+            "${script}/bin/build";
+        };
       }
     );
 }
