@@ -67,7 +67,7 @@
   }
 
   .menu-toggle:checked~.menu-toggle-icon {
-    transform: translateX(-820%) !important;
+    transform: translateX(0) !important;
     transition: all 0.3s ease;
   }
 
@@ -108,7 +108,9 @@
 
     position: fixed;
     top: calc(50% - (var(--arrow-size) * 2));
-    right: -12px;
+    right: calc(60% - 12px);
+    transform: translateX(60vw);
+    transition: transform 0.3s ease;
 
     height: calc(var(--arrow-size) * 6);
     width: calc(var(--arrow-size) * 2 + 10px);
