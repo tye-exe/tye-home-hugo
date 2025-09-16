@@ -1,2 +1,5 @@
 # Build output
 public
+
+# Hugo artifact
+.hugo_build.lock
