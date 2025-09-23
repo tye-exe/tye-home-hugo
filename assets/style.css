@@ -44,10 +44,21 @@
 }
 
 /* Allows links to be identified without color */
-
 a {
   text-decoration: underline
 }
+
+/* Here so the small text appears correctly in both previews and pages */
+.small {
+  font-size: calc(var(--global-font-size) * 0.8);
+}
+
+p:has(+ .small) {
+  margin-bottom: 0;
+}
+
+/* */
+
 
 .topbar {
   margin: 0 auto;
