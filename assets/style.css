@@ -29,17 +29,17 @@
 
 @media (max-width: 55em) {
   .hide-mobile {
-    display: none;
+    display: none !important;
   }
 
   .invisible-mobile {
-    visibility: hidden;
+    visibility: hidden !important;
   }
 }
 
 @media (min-width: 55em) {
   .hide-desktop {
-    display: none;
+    display: none !important;
   }
 }
 

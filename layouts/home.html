@@ -17,40 +17,30 @@
   <!-- End of about -->
   <hr class="about-ender">
   <h2>Blogs</h2>
-  <div class="hide-mobile">
+  <div>
     {{ with .GetPage "blog" }}
     <!-- Headers -->
-    <div class="list_pages">
-      <header>Title</header>
+    <div class="list_pages hide-mobile">
+      <p class="table-head">Title</p>
       <div class="separator"></div>
-      <header>Extract</header>
+      <p class="table-head">Extract</p>
     </div>
-    <hr style="margin: 0;">
+    <hr style="margin: 0;" class="hide-mobile">
     <!-- Content -->
     {{- range .Pages -}}
     <div class="list_pages">
-      <a href="{{ .RelPermalink | safeURL}}">{{- .LinkTitle -}}</a>
-      <div class="separator"></div>
+      <a class="hide-desktop" href="{{ .RelPermalink | safeURL}}"><h3>{{- .LinkTitle -}}</h3></a>
+      <a class="hide-mobile" href="{{ .RelPermalink | safeURL}}">{{- .LinkTitle -}}</a>
+      <div class="separator hide-mobile"></div>
       <div>
         <!-- Replace header tags, as they take up too much space -->
         {{- .Content | replaceRE `h\d` "strong" | safeHTML | truncate 250 -}}
       </div>
+      <hr class="hide-desktop" style="margin-top: 0;">
     </div>
-    <hr style="margin: 0;">
+    <hr class="hide-mobile" style="margin: 0;">
     {{- end -}}
   {{ end }}
-  </div>
-  <div class="hide-desktop">
-    {{ with .GetPage "blog" }}
-    {{- range .Pages -}}
-    <a href="{{ .RelPermalink | safeURL}}"><h3>{{- .LinkTitle -}}</h3></a>
-    <div>
-      <!-- Replace header tags, as they take up too much space -->
-      {{- .Content | replaceRE `h\d` "strong" | safeHTML | truncate 200 -}}
-    </div>
-    <hr style="margin-top: 0;">
-    {{end}}
-    {{ end }}
   </div>
 </div>
 {{ end }}

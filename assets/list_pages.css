@@ -1,11 +1,13 @@
-.list_pages {
-  display: grid;
-  grid-template-columns: 20% auto auto;
-}
+@media (min-width: 55em) {
+  .list_pages {
+    display: grid;
+    grid-template-columns: 20% auto auto;
+  }
 
-.list_pages header {
-  margin: 0;
-  font-weight: bold;
+  .list_pages .table-head {
+    margin: 0;
+    font-weight: bold;
+  }
 }
 
 .separator {
