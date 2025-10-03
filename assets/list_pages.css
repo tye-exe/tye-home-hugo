@@ -1,4 +1,4 @@
-@media (min-width: 55em) {
+@media (min-width: 881px) {
   .list_pages {
     display: grid;
     grid-template-columns: 20% auto auto;

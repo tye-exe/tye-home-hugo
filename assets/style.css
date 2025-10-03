@@ -27,7 +27,7 @@
   }
 }
 
-@media (max-width: 55em) {
+@media (max-width: 880px) {
   .hide-mobile {
     display: none !important;
   }
@@ -37,7 +37,7 @@
   }
 }
 
-@media (min-width: 55em) {
+@media (min-width: 881px) {
   .hide-desktop {
     display: none !important;
   }
