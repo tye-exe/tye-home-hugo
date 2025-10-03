@@ -15,21 +15,31 @@
   }
 }
 
-.sidebar hr {
-  margin-top: calc(var(--global-space) * 2);
-  margin-bottom: 0;
+.sidebar {
+  height: 100vh;
+  overflow-y: auto;
+
+  hr {
+    margin-top: calc(var(--global-space) * 2);
+    margin-bottom: 0;
+  }
+
+  h3 {
+    margin-bottom: 0;
+  }
+
+  /* Add padding so links are easier to distinguish & click (on mobile) */
+  nav * li {
+    padding-bottom: var(--global-space)
+  }
+
+  nav * li ul {
+    padding-top: var(--global-space)
+  }
 }
 
 .pfp {
   display: block;
-}
-
-.sidebar h3 {
-  margin-bottom: 0;
-}
-
-.sidebar nav ul li ul li {
-  padding-left: 0;
 }
 
 /* Needs to be longer than "sidebar" so that sidebar aligns properly */
@@ -82,7 +92,6 @@
     bottom: 0;
     right: 0;
     width: 60%;
-    min-height: 100%;
     transform: translateX(100%);
     transition: transform 0.3s ease;
     z-index: 10;
