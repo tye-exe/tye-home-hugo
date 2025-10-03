@@ -1,21 +1,29 @@
 @media (min-width: 881px) {
   .list_pages {
     display: grid;
-    grid-template-columns: 20% auto auto;
+    grid-template-columns: 20% auto 80%;
   }
 
   .list_pages .table-head {
     margin: 0;
     font-weight: bold;
+    text-align: center;
+  }
+
+  .page-title {
+    text-align: center;
+    margin: auto;
+  }
+
+  .page-content *:last-child {
+    margin-bottom: 0;
   }
 }
 
 .separator {
   width: 2%;
-  /* height: 0; */
   padding-right: 10px;
   border-left: 1px dashed var(--secondary-color);
-  ;
 }
 
 .hseparator {

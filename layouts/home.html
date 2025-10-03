@@ -29,10 +29,10 @@
     <!-- Content -->
     {{- range .Pages -}}
     <div class="list_pages">
-      <a class="hide-desktop" href="{{ .RelPermalink | safeURL}}"><h3>{{- .LinkTitle -}}</h3></a>
-      <a class="hide-mobile" href="{{ .RelPermalink | safeURL}}">{{- .LinkTitle -}}</a>
+      <a class="hide-desktop page-title" href="{{ .RelPermalink | safeURL}}"><h3>{{- .LinkTitle -}}</h3></a>
+      <a class="hide-mobile page-title" href="{{ .RelPermalink | safeURL}}">{{- .LinkTitle -}}</a>
       <div class="separator hide-mobile"></div>
-      <div>
+      <div class="page-content">
         <!-- Replace header tags, as they take up too much space -->
         {{- .Content | replaceRE `h\d` "strong" | safeHTML | truncate 250 -}}
       </div>
