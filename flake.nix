@@ -1,5 +1,5 @@
 {
-  description = "Flake for ...";
+  description = "Flake for hugo website";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -24,24 +24,30 @@
           ];
         };
 
-        # Builds and minifies website
-        # run with "nix run ."
+        # Run with "nix run ."
         apps.default = {
           type = "app";
           program =
             let
-              script = pkgs.writeShellScriptBin "build" ''
+              dest = "server_upload";
+              upload = "upload.tar";
+              upload_script = pkgs.writeShellScriptBin "build" ''
                 # Enables "**" glob pattern to be recursive
                 shopt -s globstar
 
-                ${pkgs.hugo}/bin/hugo build
-                ${pkgs.minhtml}/bin/minhtml public/**/*.{html,css,js}
+                ${pkgs.hugo}/bin/hugo build -d ${dest}
+                ${pkgs.minhtml}/bin/minhtml ${dest}/**/*.{html,css,js}
 
-                echo "Built and minified files"
-                echo "Ensure you clear ./public before running this script to remove unused files"
+                ${pkgs.ouch}/bin/ouch c ${dest} ${upload}
+                scp ${upload} tyevps:~/website/nginx/
+                ssh tyevps "cd website/nginx; bash update.sh"
+
+                rm -r ${dest} ${upload}
+
+                echo "Built, uploaded, and deployed website."
               '';
             in
-            "${script}/bin/build";
+            "${upload_script}/bin/build";
         };
       }
     );
