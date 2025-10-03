@@ -37,6 +37,17 @@
     {{ .TableOfContents }}
   </div>
   <div class="content">
+    <div class="page-info">
+      {{- with .GitInfo -}}
+      <p>Created On: {{ .CommitDate.Format "2 Jan 2006" -}}</p>
+      {{- range .Ancestors | last 1 -}}
+      <p>Last Modified: {{ .CommitDate.Format "2 Jan 2006" -}}</p>
+      {{- end -}}
+      {{- end -}}
+      <p>Reading time: {{ .ReadingTime -}}m</p>
+      <p>Word Count: {{ .WordCount -}}</p>
+    </div>
+    <hr class="info-separator">
     {{ .Content }}
   </div>
 </div>

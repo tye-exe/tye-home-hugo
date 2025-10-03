@@ -1,3 +1,6 @@
 baseURL = 'https://tye-home.xyz/'
 languageCode = 'en-gb'
 title = "Tye's Home"
+
+# Git integration
+enableGitInfo = true
