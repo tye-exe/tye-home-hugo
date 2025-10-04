@@ -27,7 +27,7 @@
   }
 }
 
-@media (max-width: 880px) {
+@media (max-aspect-ratio: 6/5) and (not (min-aspect-ratio: 6/5)) {
   .hide-mobile {
     display: none !important;
   }
@@ -37,7 +37,7 @@
   }
 }
 
-@media (min-width: 881px) {
+@media (min-aspect-ratio: 6/5) {
   .hide-desktop {
     display: none !important;
   }

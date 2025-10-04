@@ -1,4 +1,4 @@
-@media (min-width: 881px) {
+@media (min-aspect-ratio: 6/5) {
   .list_pages {
     display: grid;
     grid-template-columns: 20% auto 80%;
