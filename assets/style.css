@@ -86,21 +86,6 @@ p:has(+ .small) {
   position: relative
 }
 
-.desktop-promotion {
-  position: fixed;
-  bottom: 0px;
-  margin: auto;
-  left: 0;
-  right: 0;
-  text-align: center;
-  background-color: var(--background-color);
-  z-index: 100;
-
-  * {
-    margin: 0;
-  }
-}
-
 details {
   margin: 0 0 var(--global-line-height)
 }

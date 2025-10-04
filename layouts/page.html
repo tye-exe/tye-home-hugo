@@ -1,14 +1,8 @@
 {{define "body"}}
+<input type="checkbox" id="menu-toggle" class="menu-toggle hide-desktop">
+<label for="menu-toggle" class="overlay hide-desktop"></label>
 <div class="container">
-  <!-- Needs to be under the same parent as "sidebar" for "~" css selector to work -->
-  <!-- AKA, needs to be here for side-in menu to work -->
-  <input type="checkbox" id="menu-toggle" class="menu-toggle hide-desktop">
-  <label for="menu-toggle" class="menu-toggle-icon hide-desktop">
-    <div class="menu-arrow"></div>
-  </label>
-  <label for="menu-toggle" class="overlay hide-desktop"></label>
-  <!-- main content follows -->
-  <div class="sidebar">
+  <div class="menu">
     <div class="terminal-card">
       <header>Tye : She/They</header>
       <div>
@@ -18,8 +12,7 @@
         </picture>
       </div>
     </div>
-    <hr>
-    <h3>Way Out</h3>
+    <h3 class="way-out">Way Out</h3>
     <nav>
       <ul>
         {{ $links := where .Ancestors "Title" "ne" "Blogs"}}
@@ -32,7 +25,6 @@
         {{- end -}}
       </ul>
     </nav>
-    <hr>
     <h3>Jump Table</h3>
     {{ .TableOfContents }}
   </div>
@@ -51,6 +43,10 @@
     {{ .Content }}
   </div>
 </div>
+<label for="menu-toggle" class="menu-button hide-desktop">
+  <p class="menu-closed">Open Menu</p>
+  <p class="menu-opened">Close Menu</p>
+</label>
 {{ end }}
 
 {{ define "stylefiles" }}

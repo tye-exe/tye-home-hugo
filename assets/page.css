@@ -9,20 +9,15 @@
 }
 
 @media (min-aspect-ratio: 6/5) {
-  .sidebar {
+  .menu {
     position: sticky;
     top: calc(var(--global-space) * 2);
   }
 }
 
-.sidebar {
+.menu {
   height: 100vh;
   overflow-y: auto;
-
-  hr {
-    margin-top: calc(var(--global-space) * 2);
-    margin-bottom: 0;
-  }
 
   h3 {
     margin-bottom: 0;
@@ -36,13 +31,17 @@
   nav * li ul {
     padding-top: var(--global-space)
   }
+
+  .way-out {
+    margin-top: calc(var(--global-space) * 2);
+  }
 }
 
 .pfp {
   display: block;
 }
 
-/* Needs to be longer than "sidebar" so that sidebar aligns properly */
+/* Needs to be longer than "menu" so that menu aligns properly */
 .content {
   /* Aligns with the top of the card, as the card has 0.5em padding */
   position: relative;
@@ -71,14 +70,14 @@
   margin-top: 0;
 }
 
-/* Bellow handles the sidebar on mobile */
+/* Bellow handles the menu on mobile */
 
 .menu-toggle {
   display: none;
 }
 
 @media (max-aspect-ratio: 6/5) and (not (min-aspect-ratio: 6/5)) {
-  .menu-toggle:checked~.sidebar {
+  .menu-toggle:checked~* .menu {
     transform: translateX(0) !important;
   }
 
@@ -91,28 +90,63 @@
     filter: blur(1.5px);
   }
 
-  .menu-toggle:checked~.menu-toggle-icon {
-    transform: translateX(0) !important;
-    transition: all 0.3s ease;
+  .menu-toggle:checked~.menu-button {
+    .menu-closed {
+      display: none;
+    }
+
+    .menu-opened {
+      display: inherit;
+    }
   }
 
-  .menu-toggle:checked~.menu-toggle-icon .menu-arrow {
-    /* Roatate the arrow */
-    transform: translateX(10px) scale(-1, 1);
-    transition: all 0.3s ease;
+  .menu-button .menu-opened {
+    display: none;
   }
 
-  .sidebar {
+  .menu {
     position: fixed;
-    bottom: 0;
+    bottom: 5vh;
     right: 0;
-    width: 60%;
-    transform: translateX(100%);
+    width: 100%;
+    max-height: 60%;
+    height: fit-content;
+    transform: translateY(100%);
     transition: transform 0.3s ease;
     z-index: 10;
-    border-left: 2px solid var(--secondary-color);
+    border-top: 2px solid var(--secondary-color);
     background-color: var(--background-color);
+    padding-right: var(--global-space);
+    padding-left: var(--global-space);
+
+    .terminal-card {
+      display: none;
+      float: right;
+      max-width: 40%;
+    }
   }
+
+  .menu-button {
+    position: fixed;
+    height: 5vh;
+    margin: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: var(--background-color);
+    border-top: 2px dashed var(--secondary-color);
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    * {
+      margin: 0;
+    }
+  }
+
 
   .overlay {
     position: fixed;
@@ -125,35 +159,5 @@
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 8;
-  }
-
-  .menu-toggle-icon {
-    --arrow-size: 10px;
-
-    position: fixed;
-    top: calc(50% - (var(--arrow-size) * 2));
-    right: calc(60% - 12px);
-    transform: translateX(60vw);
-    transition: transform 0.3s ease;
-
-    height: calc(var(--arrow-size) * 6);
-    width: calc(var(--arrow-size) * 2 + 10px);
-    border-radius: 30%;
-    background-color: var(--font-color);
-    z-index: 9;
-
-    .menu-arrow {
-      width: 0;
-      height: 0;
-      border-right: var(--arrow-size) solid var(--background-color);
-      border-top: var(--arrow-size) solid transparent;
-      border-bottom: var(--arrow-size) solid transparent;
-      border-left: var(--arrow-size) solid transparent;
-
-      position: relative;
-      /* Doesn't work as variable */
-      top: 20px;
-      left: -7px;
-    }
   }
 }
