@@ -86,7 +86,7 @@
     visibility: visible;
   }
 
-  .menu-toggle:checked~.content * {
+  .menu-toggle:checked~.container .content * {
     filter: blur(1.5px);
   }
 
@@ -96,7 +96,7 @@
     }
 
     .menu-opened {
-      display: inherit;
+      display: block;
     }
   }
 
@@ -135,7 +135,7 @@
     right: 0;
     text-align: center;
     background-color: var(--background-color);
-    border-top: 2px dashed var(--secondary-color);
+    border-top: 2px solid var(--secondary-color);
     z-index: 100;
 
     display: flex;
