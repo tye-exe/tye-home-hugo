@@ -4,3 +4,7 @@ title = "Tye's Home"
 
 # Git integration
 enableGitInfo = true
+
+# Use external CSS for codeblocks
+[markup.highlight]
+noClasses = false

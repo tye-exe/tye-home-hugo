@@ -56,5 +56,11 @@
 {{ end }}
 
 {{ define "stylefiles" }}
-{{ partial "stylesheet" (slice "page.css") }}
+{{ $stylesheets := slice "page.css" }}
+<!-- Check if there are any code blocks on this page -->
+{{ $codeBlock := len (findRE `<div.*class="highlight">` .Content) }}
+{{ if ge $codeBlock 1 }}
+  {{ $stylesheets = $stylesheets | append "syntax_highlighting.css" }}
+{{ end }}
+{{ partial "stylesheet" $stylesheets }}
 {{ end }}

@@ -38,6 +38,7 @@
                 ${pkgs.hugo}/bin/hugo build -d ${dest}
                 ${pkgs.minhtml}/bin/minhtml ${dest}/**/*.{html,css,js}
 
+                # Uploading one file is quicker than many small files
                 ${pkgs.ouch}/bin/ouch c ${dest} ${upload}
                 scp ${upload} tyevps:~/website/nginx/
                 ssh tyevps "cd website/nginx; bash update.sh"
@@ -48,6 +49,29 @@
               '';
             in
             "${upload_script}/bin/build";
+        };
+
+        # Generates the syntax highlightling css file, which works for both dark and light mode.
+        apps."highlighting" = {
+          type = "app";
+          program =
+            let
+              dest = "assets/syntax_highlighting.css";
+              # Get themes from https://gohugo.io/quick-reference/syntax-highlighting-styles/
+              dark_theme = "monokai";
+              light_theme = "monokailight";
+              script = pkgs.writeShellScriptBin "syntax_highlighting" ''
+
+                echo "/* Script generated file. Do not edit. */" > ${dest}
+                ${pkgs.hugo}/bin/hugo gen chromastyles --style=${dark_theme} >> ${dest}
+                echo "@media (prefers-color-scheme: light) {" >> ${dest}
+                ${pkgs.hugo}/bin/hugo gen chromastyles --style=${light_theme} >> ${dest}
+                echo "}" >> ${dest}
+
+                echo "Regenderated 'assets/syntax_highlighting.css'"
+              '';
+            in
+            "${script}/bin/syntax_highlighting";
         };
       }
     );
