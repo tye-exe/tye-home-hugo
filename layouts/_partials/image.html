@@ -1,0 +1,13 @@
+<!-- Args:
+  - path = path to image relative to "assets/images".
+  - class = css classes applied to all "source" and "img" elements.
+  - dimensions = See https://gohugo.io/content-management/image-processing/#resize
+  - alt = Alt text
+ -->
+{{- $image := resources.Get (path.Join "images" .path) -}}
+{{- $image := $image.Resize .dimensions -}}
+<picture>
+  <source class="{{- .class -}}" srcset='{{- ($image.Process "webp").RelPermalink -}}' type="image/webp">
+  <source class="{{- .class -}}" srcset='{{- ($image.Process "jpeg").RelPermalink -}}' type="image/jpeg">
+  <img class="{{- .class -}}" src='{{- ($image.Process "png").RelPermalink -}}' alt="{{- .alt -}}">
+</picture>

@@ -39,6 +39,7 @@
 
 .pfp {
   display: block;
+  max-width: 100%;
 }
 
 /* Needs to be longer than "menu" so that menu aligns properly */

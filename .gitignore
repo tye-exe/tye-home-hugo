@@ -1,5 +1,8 @@
 # Build output
 public
 
+# Cache
+resources
+
 # Hugo artifact
 .hugo_build.lock

@@ -4,10 +4,7 @@
     <div class="terminal-card hide-mobile">
       <header>Tye : She/They</header>
       <div>
-        <picture>
-          <source class="pfp" srcset="images/pfp.avif" type="image/avif">
-          <img class="pfp" src="images/pfp.jpg" alt="Drawing of a cat holding a fish">
-        </picture>
+        {{ partial "image" (dict "path" "pfp.png" "class" "pfp" "dimensions" "512x512" "alt" "Drawing of a cat holding a fish")}}
       </div>
     </div>
     <div class="about-text">

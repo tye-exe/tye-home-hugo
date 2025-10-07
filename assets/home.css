@@ -14,6 +14,7 @@
 
 .pfp {
   display: block;
+  max-width: 100%;
 }
 
 /* Removes the margin after the last intro paragraph */
