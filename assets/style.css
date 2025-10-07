@@ -27,6 +27,14 @@
   }
 }
 
+@font-face {
+  font-family: "Liberation Mono";
+  src: local("Liberation Mono"),
+    url("fonts/LiberationMono-Regular.woff2") format("woff2"),
+    url("fonts/LiberationMono-Regular.woff") format("woff"),
+    url("fonts/LiberationMono-Regular.ttf") format("ttf");
+}
+
 @media (max-aspect-ratio: 6/5) and (not (min-aspect-ratio: 6/5)) {
   .hide-mobile {
     display: none !important;

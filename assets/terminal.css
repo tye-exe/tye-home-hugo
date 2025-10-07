@@ -3,8 +3,8 @@
   --global-font-size: 15px;
   --global-line-height: 1.4em;
   --global-space: 10px;
-  --font-stack: "Menlo", "Monaco", "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", serif;
-  --mono-font-stack: "Menlo", "Monaco", "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", serif;
+  --font-stack: "Liberation Mono";
+  --mono-font-stack: "Liberation Mono";
   /* When changing make sure to change hide-mobile classes */
   --page-width: 1200px;
   --input-style: solid;

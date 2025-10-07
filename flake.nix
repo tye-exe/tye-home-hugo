@@ -73,6 +73,40 @@
             in
             "${script}/bin/syntax_highlighting";
         };
+
+        # Performed slightly better (compression) than "woff2_compress" cli tool
+        apps."fontConvert" = {
+          type = "app";
+          program = "${pkgs.writers.writePython3 "font_convert"
+            {
+              libraries = [
+                pkgs.python313Packages.fonttools
+                pkgs.python313Packages.brotli
+              ];
+            }
+            ''
+              import sys
+              import os
+
+
+              def convert(file, format):
+                  from fontTools.ttLib import TTFont
+                  font = TTFont(file)
+                  font.flavor = format
+                  out = os.path.splitext(file)[0]+f".{format}"
+                  font.save(out)
+
+
+              files = sys.argv[1:]
+              if len(files) == 0:
+                  exit("Please provide input files to convert")
+
+              for file in files:
+                  convert(file, "woff2")
+                  convert(file, "woff")
+            ''
+          }";
+        };
       }
     );
 }
