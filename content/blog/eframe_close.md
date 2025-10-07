@@ -402,3 +402,5 @@ However, the winit example exhibits the correct behaviour on both X11 and Waylan
 
 I forced [The egui example](https://github.com/tye-exe/egui_no_close) to compile to X11 by unsetting the "WAYLAND_DISPLAY" environment variable. Running the application through XWayland, which resulted in the correct behaviour.
 This can be a workaround in the short-term, but my investigations will continue!
+
+My work continues in [Eframe Patch](./eframe_close_two.md).
