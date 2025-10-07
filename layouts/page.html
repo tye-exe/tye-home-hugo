@@ -27,16 +27,23 @@
   </div>
   <div class="content">
     <div class="page-info">
+      {{- $modified := "" -}}
+      {{- $created := "" -}}
       {{- with .GitInfo -}}
-      <p>Last Modified: {{ .CommitDate.Format "2 Jan 2006" -}}</p>
+      {{- /* If past commits, then take the earliest as the creation date */ -}}
+      {{- range .Ancestors | last 1 -}}
+      {{- $created = .CommitDate.Format "2 Jan 2006" -}}
       {{- end -}}
+      {{- if ge (len .Ancestors) 1 -}}
+      {{- $modified = .CommitDate.Format "2 Jan 2006" -}}
+      {{- else -}}
+      {{- $created = .CommitDate.Format "2 Jan 2006" -}}
+      {{- end -}}
+      {{- end -}}
+      {{ if $modified }}<p>Last Modified: {{ $modified -}}</p>{{ end }}
       <p>Reading time: {{ .ReadingTime -}}m</p>
       <p>Word Count: {{ .WordCount -}}</p>
-      {{- with .GitInfo -}}
-      {{- range .Ancestors | last 1 -}}
-      <p>Created On: {{ .CommitDate.Format "2 Jan 2006" -}}</p>
-      {{- end -}}
-      {{- end -}}
+      <p>Created On: {{ $created -}}</p>
     </div>
     <hr class="info-separator">
     {{ .Content }}
