@@ -25,3 +25,13 @@
 .about-ender {
   margin: calc(var(--global-space) * 2.5)0;
 }
+
+.links {
+  display: flex;
+  margin-bottom: calc(var(--global-space) * 2.5);
+}
+
+.site-link {
+  text-align: center;
+  margin: auto;
+}

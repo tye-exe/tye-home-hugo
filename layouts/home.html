@@ -39,6 +39,22 @@
     {{- end -}}
   {{ end }}
   </div>
+	<!-- Used for spacing on desktop. Can be replaced with something that provides a "global-space" later-on -->
+	<hr class="hide-mobile" style="margin-top: 0; visibility: hidden;">
+  <h2>Miscellaneous Links</h2>
+	<div class="links">
+	<!-- Adding anymore links looks bad on mobile -->
+	<!-- Might be worth switching to a 2x2 grid -->
+	{{- $links := slice
+		(dict "name" "Source Code*" "link" "https://github.com/tye-exe/tye-home-hugo")
+		(dict "name" "Button?" "link" "button")
+		(dict "name" "Hey Rick*" "link" "https://youtu.be/dQw4w9WgXcQ")
+	-}}
+	{{- range $links -}}
+		<a class="site-link" href="{{ .link }}">{{ .name }}</a>
+	{{- end -}}
+	</div>
+	<p>Links ending with * take you to an external site</p>
 </div>
 {{ end }}
 
