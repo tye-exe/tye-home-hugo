@@ -26,7 +26,7 @@
     <!-- Content -->
     {{- range .Pages -}}
     <div class="list_pages">
-      <a class="hide-desktop page-title" href="{{ .RelPermalink | safeURL}}"><h3>{{- .LinkTitle -}}</h3></a>
+      <h3 class="hide-desktop"><a class="hide-desktop page-title" href="{{ .RelPermalink | safeURL}}">{{- .LinkTitle -}}</a></h3>
       <a class="hide-mobile page-title" href="{{ .RelPermalink | safeURL}}">{{- .LinkTitle -}}</a>
       <div class="separator hide-mobile"></div>
       <div class="page-content">
