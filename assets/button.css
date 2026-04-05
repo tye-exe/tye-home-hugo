@@ -1,0 +1,41 @@
+.buttons-top {
+  margin-bottom: var(--global-space);
+  margin-top: 0;
+}
+
+.buttons-bottom {
+  margin-top: var(--global-space);
+}
+
+.button-showcase {
+  display: flex;
+}
+
+.my-button {
+  background-color: var(--secondary-color);
+
+  a picture img {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border: 1px dashed var(--background-color);
+  }
+
+  p {
+    margin-top: 2px;
+    margin-bottom: 0;
+    color: var(--invert-font-color);
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+.above-back {
+  margin-top: var(--global-space);
+  margin-bottom: calc(var(--global-space) * 2);
+}
+
+.back-container {
+  width: 100%;
+  text-align: center;
+}

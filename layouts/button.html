@@ -1,0 +1,23 @@
+{{ define "body" }}
+<div class="container">
+	<hr class="buttons-top">
+	<div class="button-showcase">
+		<div class="my-button">
+			<p>Mine!</p>
+			<a href="{{- .Site.BaseURL -}}">
+				{{ partial "image" (dict "path" "banner.png" "class" "banner" "dimensions" "88x31" "alt" "Two cats on yellow background with \"meow!\" text")}}
+			</a>
+		</div>
+	</div>
+	<hr class="buttons-bottom">
+	{{ .Content }}
+	<hr class="hide-desktop above-back">
+	<div class="hide-desktop back-container">
+		<a href="{{- .Parent.RelPermalink -}}">Back</a>
+	</div>
+</div>
+{{ end }}
+
+{{ define "stylefiles" }}
+{{ partial "stylesheet" (slice "button.css")}}
+{{end}}
