@@ -97,3 +97,9 @@ p:has(+ .small) {
 details {
   margin: 0 0 var(--global-line-height)
 }
+
+/* Fix markdown footnote formatting */
+.footnotes ol li {
+  display: ruby;
+  padding-left: unset;
+}
