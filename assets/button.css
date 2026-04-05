@@ -9,6 +9,8 @@
 
 .button-showcase {
   display: flex;
+  align-items: center;
+  gap: 0.3em;
 }
 
 .my-button {
