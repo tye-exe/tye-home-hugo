@@ -107,6 +107,18 @@
             ''
           }";
         };
+
+        apps."image_strip" = {
+          type = "app";
+          program =
+            let
+              script = pkgs.writeShellScriptBin "image_strip" ''
+                echo "Stripping metadata from the given file : $1"
+                ${pkgs.imagemagick}/bin/magick mogrify -auto-orient -strip $1
+              '';
+            in
+            "${script}/bin/image_strip";
+        };
       }
     );
 }
