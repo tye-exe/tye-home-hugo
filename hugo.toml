@@ -1,5 +1,5 @@
 baseURL = 'https://tye-home.xyz/'
-languageCode = 'en-gb'
+local = 'en-gb'
 title = "Tye's Home"
 
 # Git integration
