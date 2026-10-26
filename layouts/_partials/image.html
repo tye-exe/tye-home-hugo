@@ -1,13 +1,28 @@
 <!-- Args:
   - path = path to image relative to "assets/images".
   - class = css classes applied to all "source" and "img" elements.
-  - dimensions = See https://gohugo.io/content-management/image-processing/#resize
+  - dimensions = Resize source image. This is not the html size. See https://gohugo.io/content-management/image-processing/#resize
   - alt = Alt text
  -->
 {{- $image := resources.Get (path.Join "images" .path) -}}
 {{- $image := $image.Resize .dimensions -}}
+
+{{- /* Process image into multiple encodings */ -}}
+{{- $images := slice -}}
+{{- range slice "avif" "webp" "jpeg" -}}
+{{- $img := $image.Process . -}}
+{{- $images = $images | append (dict
+"image" $img
+"size" ($img.Content | len)
+"encoding" .
+) -}}
+{{- end -}}
+
+{{- $images = sort $images ".size" "asc" -}}
+
 <picture>
-  <source class="{{- .class -}}" srcset='{{- ($image.Process "webp").RelPermalink -}}' type="image/webp">
-  <source class="{{- .class -}}" srcset='{{- ($image.Process "jpeg").RelPermalink -}}' type="image/jpeg">
-  <img class="{{- .class -}}" src='{{- ($image.Process "png").RelPermalink -}}' alt="{{- .alt -}}">
+	{{- range $images -}}
+	<source class='{{- $.class -}}' srcset='{{- .image.RelPermalink -}}' type="image/{{- .encoding -}}">
+	{{- end -}}
+	<img class='{{- .class -}}' src='{{- ($image.Process "png").RelPermalink -}}' alt='{{- .alt -}}'>
 </picture>
