@@ -8,3 +8,9 @@ enableGitInfo = true
 # Use external CSS for codeblocks
 [markup.highlight]
 noClasses = false
+
+[imaging]
+[imaging.avif]
+compression = 'lossy'
+encoderSpeed = 7
+quality = 50
